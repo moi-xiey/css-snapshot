@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      height: 100%;
+      margin: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #6699ff;
+    }
+
+    #app {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      width: 180px;
+      height: 20px;
+      margin: 0 auto;
+      transform: translateY(-50%);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .button {
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-right: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s ease width;
+    }
+
+    .button:last-child {
+      margin-right: 0;
+    }
+
+    .button.active {
+      width: 60px;
+      cursor: auto;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="button active"></div>
+  <div class="button"></div>
+  <div class="button"></div>
+  <div class="button"></div>
+</div>
+<script type="text/javascript">
+  const isReady = (state) => state === 'interactive';
+
+  const ready = new Promise((resolve) => {
+    if (isReady(document.readyState)) {
+      resolve();
+      return;
+    }
+    document.addEventListener('readystatechange', () => {
+      isReady(document.readyState) && resolve();
+    });
+  });
+
+  ready.then(() => {
+    const buttons = Array.from(document.querySelectorAll('.button'));
+
+    const switchToNext = (event) => {
+      const current = event.target;
+      if (current.classList.contains('active')) {
+        return;
+      }
+      buttons.forEach(button => button.classList.remove('active'));
+      current.classList.add('active');
+    };
+
+    buttons.forEach(button => button.addEventListener('click', switchToNext));
+  });
+</script>
+</body>
+</html>

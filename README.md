@@ -5,3 +5,4 @@
 -  火焰(`fire.html`) | [效果](https://codepen.io/moi-xiey/pen/LabMpx)
 -  文字(`text.html`) | [效果](https://codepen.io/moi-xiey/pen/OqbryE)
 -  导航(`nav.html`) | [效果](https://codepen.io/moi-xiey/pen/gELZeB)
+-  分页(`pagination.html`) | [效果](https://codepen.io/moi-xiey/pen/ZPBVwp)
